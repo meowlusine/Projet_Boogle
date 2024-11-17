@@ -17,7 +17,7 @@ namespace Projet_Boogle
             this.nom = nom;
             if (nom=="")    //la condition permet de verifier si le nom entre est null ou vide cf learn microsoft pour autres options
             {
-                Console.WriteLine("Vous devez avoir un nom")
+                Console.WriteLine("Vous devez avoir un nom");
                 return;
             }
             this.score = score;
