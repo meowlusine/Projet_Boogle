@@ -53,7 +53,7 @@ namespace Projet_Boogle
         public string toString()
         {
            Console.Write("Le score de" + this.nom + " est de " + this.score + " grâce aux mots cités suivants");
-           foreach(string mot in motsTrouves)
+           foreach(string mot in motsTrouves.Keys)
             {
                 Console.Write($"{mot}");
             } 
