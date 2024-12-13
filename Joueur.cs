@@ -12,10 +12,10 @@ namespace Projet_Boogle
         private int score;
         private Dictionary<string, int> motsTrouves;
 
-        public Joueur(string nom) 
+        public Joueur(string nom)
         {
             this.nom = nom;
-            if (nom=="")    //la condition permet de verifier si le nom entre est null ou vide cf learn microsoft pour autres options
+            if (nom == "")    //la condition permet de verifier si le nom entre est null ou vide cf learn microsoft pour autres options
             {
                 Console.WriteLine("Vous devez avoir un nom");
                 return;
@@ -24,7 +24,19 @@ namespace Projet_Boogle
             this.motsTrouves = new Dictionary<string, int>();
         }
 
-
+        public string Nom
+        {
+            get { return this.nom; }
+        }
+        public int Score
+        {
+            get { return this.score; }
+            set { this.score = value; }
+        }
+        public Dictionary<string,int> MotsTrouves{
+            get { return this.motsTrouves;}
+            set { this.motsTrouves=value;}
+            }
         public bool Contain(string mot)
         {
             if (motsTrouves.ContainsKey(mot))

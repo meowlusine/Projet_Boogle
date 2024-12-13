@@ -1,0 +1,14 @@
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\Projet_Boogle.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\Projet_Boogle.AssemblyInfoInputs.cache
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\Projet_Boogle.AssemblyInfo.cs
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\Projet_Boogle.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\bin\Debug\net8.0\Projet_Boogle.exe
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\bin\Debug\net8.0\Projet_Boogle.deps.json
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\bin\Debug\net8.0\Projet_Boogle.runtimeconfig.json
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\bin\Debug\net8.0\Projet_Boogle.dll
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\bin\Debug\net8.0\Projet_Boogle.pdb
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\Projet_Boogle.dll
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\refint\Projet_Boogle.dll
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\Projet_Boogle.pdb
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\Projet_Boogle.genruntimeconfig.cache
+C:\Users\pc\Documents\esilv\A2\info\poo\Projet_Boogle\obj\Debug\net8.0\ref\Projet_Boogle.dll

@@ -70,6 +70,7 @@ namespace Projet_Boogle
                     {
                         if (RechercheMot(mot, 0, i, j, new bool[this.taille, this.taille]))
                         {
+                            Console.WriteLine("c'est vrai hassoul");
                             return true;
                         }
                     }
