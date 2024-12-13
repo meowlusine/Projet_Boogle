@@ -11,13 +11,14 @@ namespace Projet_Boogle
         private string langue = "fr";
         private List<string> liste_mots = new List<string>();
 
+
+
         #region Constructeur
         public Dictionnaire(string langue)
         {
             this.langue = langue;
-            List<string> liste_mots = Program.transformation_Dico(langue);
-            liste_mots = Program.tri_fusion(liste_mots);
-            this.liste_mots = liste_mots;
+            this.liste_mots = Program.transformation_Dico(langue);
+            this.liste_mots = Program.tri_fusion(liste_mots);
         }
         #endregion
 
@@ -76,34 +77,29 @@ namespace Projet_Boogle
 
         public bool RechDicoRecursif(string mot, List<string> liste_mots)
         {
+            // Gestion des cas de base
+            if (liste_mots.Count == 0) return false;
+            if (liste_mots.Count == 1) return string.Compare(mot, liste_mots[0]) == 0;
+
             int milieu = liste_mots.Count / 2;
             string mot_milieu = liste_mots[milieu];
 
-            if (string.Compare(mot,mot_milieu)==0)
+            // Comparaison avec l'élément central
+            int comparaison = string.Compare(mot, mot_milieu);
+
+            if (comparaison == 0)
+                return true;
+            else if (comparaison < 0)
             {
-                return true; 
-            }
-            else if(liste_mots.Count == 0 || liste_mots.Count ==1)
-            {
-                return false;
+                // Partie gauche
+                var gauche = liste_mots.GetRange(0, milieu);
+                return RechDicoRecursif(mot, gauche);
             }
             else
             {
-                
-                if (string.Compare(mot, mot_milieu) < 0)
-                {
-                    List<string> gauche = liste_mots.GetRange(0, milieu-1);
-                    return RechDicoRecursif(mot,gauche);
-                }
-                else if(string.Compare(mot, mot_milieu) > 0)
-                {
-                    List<string> droite = liste_mots.GetRange(milieu,liste_mots.Count - milieu);
-                    return RechDicoRecursif(mot, droite);
-                }
-                else
-                {
-                    return false;
-                }
+                // Partie droite
+                var droite = liste_mots.GetRange(milieu + 1, liste_mots.Count - (milieu + 1));
+                return RechDicoRecursif(mot, droite);
             }
         }
         #endregion

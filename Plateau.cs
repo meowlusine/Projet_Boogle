@@ -1,5 +1,7 @@
 ﻿using System;
+
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +13,10 @@ namespace Projet_Boogle
         private De[] des;
         private string[,] lettresPlateau;
         private int taille;
+        private Dictionnaire dico;
 
-    
-        public Plateau( int taille)
+        
+        public Plateau( int taille, Dictionnaire dico)
         {
             this.des = new De[taille * taille];
             this.lettresPlateau = new string[taille, taille];
@@ -28,6 +31,7 @@ namespace Projet_Boogle
                     lettresPlateau[i, j] = des[indexDe].Lettre_visible;
                 }
             }
+            this.dico = dico;
             this.taille=taille;
         }
 
@@ -54,17 +58,23 @@ namespace Projet_Boogle
 
         public bool Test_Plateau(string mot)
         {
-           for(int i=0; i<this.taille; i++)
-           {
-                for(int j=0; j<this.taille; j++)
+            if(mot.Length < 2)
+            {
+                return false;
+            }
+            if (dico.RechDicoRecursif(mot,dico.Liste_mots))
+            {
+                for (int i = 0; i < this.taille; i++)
                 {
-                    if (RechercheMot(mot, 0, i, j, new bool[this.taille, this.taille]))
+                    for (int j = 0; j < this.taille; j++)
                     {
-                        return true;
+                        if (RechercheMot(mot, 0, i, j, new bool[this.taille, this.taille]))
+                        {
+                            return true;
+                        }
                     }
                 }
-           }
-
+            }
             return false;
         }
 

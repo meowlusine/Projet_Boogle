@@ -4,7 +4,7 @@ using Projet_Boogle;
 
 class Program
 {
-    public static Dictionary<string, int[]>? Lettres; // un dictionnaire avec toutes les lettres, leur nombre et leur poids
+   
 
     #region Methodes de mise en forme des fichiers 
     public static string LireFichier(string fichier)
@@ -119,7 +119,8 @@ class Program
 
     public static void TestPlateau()
     {
-        Plateau plateau = new Plateau(4);
+        Dictionnaire dico = new Dictionnaire("fr");
+        Plateau plateau = new Plateau(4,dico);
         Console.WriteLine(plateau.toString());
         Console.WriteLine("Ecrivez un mot");
         string mot = Convert.ToString(Console.ReadLine());
@@ -240,13 +241,4 @@ class Program
 
     
 
-    public static void Main(string[] args)
-    {
-        string fichierLettre = LireFichier("Lettres.txt");
-        Lettres = StringLettresToDico(fichierLettre);
-        //TestDe();
-        //Test_tris();
-        //TestDictionnaire();
-        TestPlateau();
-    }
 }

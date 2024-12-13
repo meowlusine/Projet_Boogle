@@ -24,7 +24,7 @@ namespace Projet_Boogle
             for(int i=0; i<6; i++)
             {
                 int numero_lettre = random.Next(0, 26);
-                string[] lettres = Program.Lettres.Keys.ToArray(); // met toutes les lettres dans un tableau de string
+                string[] lettres = Jeu.Lettres.Keys.ToArray(); // met toutes les lettres dans un tableau de string
                 string lettre_choisie = lettres[numero_lettre]; // choisie une lettre random 
                 if (lettres_de.ContainsKey(lettre_choisie))
                 {
