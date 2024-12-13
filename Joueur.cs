@@ -8,7 +8,7 @@ namespace Projet_Boogle
 {
     internal class Joueur
     {
-        private string nom,
+        private string nom;
         private int score;
         private Dictionary<string, int> motsTrouves;
 
@@ -52,11 +52,12 @@ namespace Projet_Boogle
 
         public string toString()
         {
-           Console.Write("Le score de" + this.nom + " est de " + this.score + " grâce aux mots cités suivants");
+            string res = "Le score de" + this.nom + " est de " + this.score + " grâce aux mots cités suivants \n"; 
            foreach(string mot in motsTrouves.Keys)
             {
-                Console.Write($"{mot}");
-            } 
+                res += mot+", ";
+            }
+            return res;
 
         }
     }

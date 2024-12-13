@@ -15,19 +15,19 @@ namespace Projet_Boogle
     
         public Plateau( int taille)
         {
-            De[] des = new De[taille * taille];
-            string[,] lettresPlateau = new string[taille, taille];
+            this.des = new De[taille * taille];
+            this.lettresPlateau = new string[taille, taille];
             for (int i = 0; i<taille; i++)
             {
                 for (int j = 0; j<taille; j++)
                 {
+                    De de = new De();
+                    de.Lance();
                     int indexDe = i * taille + j;
-                    des[indexDe].Lance();
-                    lettresPlateau[i, j] = des[indexDe].Lettre_visible[0];
+                    des[indexDe] = de;
+                    lettresPlateau[i, j] = des[indexDe].Lettre_visible;
                 }
             }
-            this.des=des;
-            this.lettresPlateau=lettresPlateau;
             this.taille=taille;
         }
 
@@ -75,7 +75,7 @@ namespace Projet_Boogle
                 return false;
             }
 
-            if (this.lettresPlateau[i, j] != mot[indiceLettre])
+            if (this.lettresPlateau[i, j] != Convert.ToString(mot[indiceLettre]))
             {
                 return false;
             }

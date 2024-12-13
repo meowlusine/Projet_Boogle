@@ -62,8 +62,7 @@ class Program
     #region Tests
     public static void TestDe()
     {
-        string fichierLettre = LireFichier("Lettres.txt");
-        Lettres = StringLettresToDico(fichierLettre);
+        
 
         De dé = new De();
         dé.Lance();
@@ -243,6 +242,8 @@ class Program
 
     public static void Main(string[] args)
     {
+        string fichierLettre = LireFichier("Lettres.txt");
+        Lettres = StringLettresToDico(fichierLettre);
         //TestDe();
         //Test_tris();
         //TestDictionnaire();
