@@ -118,6 +118,22 @@ class Program
         Console.ReadLine();
     }
 
+    public static void TestPlateau()
+    {
+        Plateau plateau = new Plateau(4);
+        Console.WriteLine(plateau.toString());
+        Console.WriteLine("Ecrivez un mot");
+        string mot = Convert.ToString(Console.ReadLine());
+
+        if (plateau.Test_Plateau(mot))
+        {
+            Console.WriteLine("mot trouve");
+        }
+        else
+        {
+            Console.WriteLine("pas trouve");
+        }
+    }
 
 
     #endregion
@@ -230,5 +246,6 @@ class Program
         //TestDe();
         //Test_tris();
         //TestDictionnaire();
+        TestPlateau();
     }
 }
