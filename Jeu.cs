@@ -11,10 +11,23 @@ namespace Projet_Boogle
     class Jeu
     {
         public static Dictionary<string, int[]>? Lettres; // un dictionnaire avec toutes les lettres, leur nombre et leur poids
+
+        public static void AfficherDictionnaire(Dictionary<string, int[]> dictionnaire)
+        {
+            foreach (KeyValuePair<string, int[]> element in dictionnaire)
+            {
+                string cle = element.Key;
+                int[] valeurs = element.Value;
+
+                Console.WriteLine($"Clé: {cle}, Valeurs: [{valeurs[0]}, {valeurs[1]}]");
+            }
+        }
+
         static void Main(string[] args)
         {
             string fichierLettre = Program.LireFichier("Lettres.txt");
             Lettres = Program.StringLettresToDico(fichierLettre);
+            AfficherDictionnaire(Lettres);
 
             // Creation des joueurs 
 
@@ -48,14 +61,14 @@ namespace Projet_Boogle
 
 
 
-            for (int tour = 1; tour <= 2; tour++)
+            for (int tour = 1; tour <= 3; tour++)
             {
 
                 Console.WriteLine("____ Tour " + tour + " ! ____");
                 for (int joueur = 0; joueur < joueurs.Length; joueur++)
                 {
                     Console.WriteLine($"\nC'est au tour de " + joueurs[joueur].Nom +" !");
-                    Console.WriteLine("Tu as 40sec pour jouer.");
+                    Console.WriteLine("Tu as 1 min pour jouer.");
 
                     // creation du plateau 
                     Dictionnaire dico = new Dictionnaire(langue);
@@ -65,7 +78,7 @@ namespace Projet_Boogle
                     Stopwatch stopwatch = new Stopwatch();
                     stopwatch.Start();
 
-                    while (stopwatch.Elapsed.TotalSeconds < 40)
+                    while (stopwatch.Elapsed.TotalSeconds < 60)
                     {
                         
                         Console.WriteLine("Ecris un mot");

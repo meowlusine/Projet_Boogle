@@ -15,23 +15,32 @@ class Program
 
     /// <summary>
     /// transforme le string de lettre en un dictionnaire de la forme {"A":[4,3],...}
-    /// avec en clé la lettre et en valeur un tableau de int contenant le nombre et le poids de la lettre
+    /// avec en clé la lettre et en valeur un tableau de int contenant  le poids et le nombre de la lettre
     /// </summary>
     /// <param name="fichierLettre"> le texte extrait de Lettre.txt</param>
     /// <returns>Dictionnaire des lettres</returns>
     public static Dictionary<string, int[]> StringLettresToDico(string fichierLettre)
     {
         Dictionary<string, int[]> Lettres = new Dictionary<string, int[]>();
-        string[] chaque_lettre = fichierLettre.Split("\n");
-        foreach (string lettre in chaque_lettre)
+
+        // Sépare les lignes du fichier
+        string[] chaque_ligne = fichierLettre.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (string ligne in chaque_ligne)
         {
-            int[] nombre_poids = new int[2];
-            nombre_poids[0] = Convert.ToInt32(lettre[2]);
-            nombre_poids[1] = Convert.ToInt32(lettre[4]);
-            Lettres.Add(Convert.ToString(lettre[0]), nombre_poids);
+            // Sépare les éléments de chaque ligne
+            string[] parties = ligne.Split(';');
+            string lettre = parties[0]; // Première colonne : la lettre
+            int poids = Convert.ToInt32(parties[1]); // Deuxième colonne : le poids
+            int nombre = Convert.ToInt32(parties[2]); // Troisième colonne : le nombre
+
+            Lettres.Add(lettre, new int[] { poids, nombre }); 
+
         }
+
         return Lettres;
     }
+
 
 
     /// <summary>
