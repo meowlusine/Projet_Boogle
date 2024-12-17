@@ -80,7 +80,7 @@ namespace Projet_Boogle
 
         public string toString()
         {
-            string res = "Le score de" + this.nom + " est de " + this.score + " grâce aux mots cités suivants \n"; 
+            string res = "Le score de " + this.nom + " est de " + this.score + " grâce aux mots cités suivants \n"; 
            foreach(string mot in motsTrouves.Keys)
             {
                 res += mot+", ";
@@ -194,18 +194,12 @@ namespace Projet_Boogle
 
                     tentatives++;
                 }
-
-                // Si après plusieurs tentatives on n'a pas trouvé de place, on abandonne ce mot
-                if (tentatives >= maxTentatives)
-                {
-                    Console.WriteLine($"Impossible de placer le mot : {mot.Key}");
-                }
             }
 
             // Enregistrer l'image dans un fichier
             string path = $"{Nom}_nuage_mots.png";
             image.Save(path, ImageFormat.Png);
-            Console.WriteLine($"Nuage de mots généré et enregistré sous {path}");
+           
 
             // Ouvrir l'image automatiquement
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(path) { UseShellExecute = true });
