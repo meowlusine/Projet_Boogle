@@ -62,6 +62,18 @@ namespace Projet_Boogle
             }
         }
 
+        public int ScoreDuMot(string mot)
+        {
+            int scoreMot = 0;
+            foreach (char lettre in mot.ToUpper())
+            {
+                scoreMot += Jeu.Lettres[lettre][0];
+
+            }
+
+            return scoreMot;
+        }
+
         public string toString()
         {
             string res = "Le score de" + this.nom + " est de " + this.score + " grâce aux mots cités suivants \n"; 

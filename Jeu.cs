@@ -10,7 +10,7 @@ namespace Projet_Boogle
 {
     class Jeu
     {
-        public static Dictionary<string, int[]>? Lettres; // un dictionnaire avec toutes les lettres, leur nombre et leur poids
+        public static Dictionary<char, int[]>? Lettres; // un dictionnaire avec toutes les lettres, leur nombre et leur poids
 
         public static void AfficherDictionnaire(Dictionary<string, int[]> dictionnaire)
         {
@@ -25,9 +25,10 @@ namespace Projet_Boogle
 
         static void Main(string[] args)
         {
+            
+
             string fichierLettre = Program.LireFichier("Lettres.txt");
             Lettres = Program.StringLettresToDico(fichierLettre);
-            AfficherDictionnaire(Lettres);
 
             // Creation des joueurs 
 

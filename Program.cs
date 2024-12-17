@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Projet_Boogle;
 
@@ -14,14 +15,14 @@ class Program
     }
 
     /// <summary>
-    /// transforme le string de lettre en un dictionnaire de la forme {"A":[4,3],...}
+    /// transforme le string de lettre en un dictionnaire de la forme {'A':[4,3],...}
     /// avec en clé la lettre et en valeur un tableau de int contenant  le poids et le nombre de la lettre
     /// </summary>
     /// <param name="fichierLettre"> le texte extrait de Lettre.txt</param>
     /// <returns>Dictionnaire des lettres</returns>
-    public static Dictionary<string, int[]> StringLettresToDico(string fichierLettre)
+    public static Dictionary<char, int[]> StringLettresToDico(string fichierLettre)
     {
-        Dictionary<string, int[]> Lettres = new Dictionary<string, int[]>();
+        Dictionary<char, int[]> Lettres = new Dictionary<char, int[]>();
 
         // Sépare les lignes du fichier
         string[] chaque_ligne = fichierLettre.Split("\n", StringSplitOptions.RemoveEmptyEntries);
@@ -30,7 +31,7 @@ class Program
         {
             // Sépare les éléments de chaque ligne
             string[] parties = ligne.Split(';');
-            string lettre = parties[0]; // Première colonne : la lettre
+            char lettre = Convert.ToChar(parties[0]); // Première colonne : la lettre
             int poids = Convert.ToInt32(parties[1]); // Deuxième colonne : le poids
             int nombre = Convert.ToInt32(parties[2]); // Troisième colonne : le nombre
 
@@ -141,6 +142,41 @@ class Program
         else
         {
             Console.WriteLine("pas trouve");
+        }
+    }
+
+    public static void TestJoueur()
+    {
+        Dictionary<string, int> tests = new Dictionary<string, int>
+        {
+                { "ABE", 5 },  // A(1) + B(3) + E(1) = 5
+                { "CADE", 7 },
+                { "BEE", 5 },
+                { "ABCD", 9 },
+                { "INVA", 0 }
+        };
+
+
+        foreach (var test in tests)
+        {
+            string mot = test.Key;
+            int scoreAttendu = test.Value;
+
+            // Créer un Joueur
+            Joueur joueur = new Joueur("Tash");
+
+
+            int actualScore = joueur.ScoreDuMot(mot);
+
+            // Vérifier le résultat
+            if (actualScore == scoreAttendu)
+            {
+                Console.WriteLine($"Test bon pour le mot '{mot}'");
+            }
+            else
+            {
+                Console.WriteLine($"Test échoué pour le mot '{mot}'");
+            }
         }
     }
 

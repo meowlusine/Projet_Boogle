@@ -11,7 +11,7 @@ namespace Projet_Boogle
     internal class Plateau
     {
         private De[] des;
-        private string[,] lettresPlateau;
+        private char[,] lettresPlateau;
         private int taille;
         private Dictionnaire dico;
         private List<string> mot_trouvés_plateau;
@@ -20,14 +20,14 @@ namespace Projet_Boogle
         public Plateau( int taille, Dictionnaire dico)
         {
             this.des = new De[taille * taille];
-            this.lettresPlateau = new string[taille, taille];
+            this.lettresPlateau = new char[taille, taille];
 
             //création d'un dictionnaire avec les lettres de l'alphabet et le nombre de fois qu'elles apparaissent sur le plateau
            
-            Dictionary<string, int> apparence_lettre = new Dictionary<string, int>();
+            Dictionary<char, int> apparence_lettre = new Dictionary<char, int>();
             for (char lettre = 'A'; lettre <= 'Z'; lettre++)
             {
-                apparence_lettre[lettre.ToString()] = 0;
+                apparence_lettre[lettre] = 0;
             }
 
 
@@ -110,7 +110,7 @@ namespace Projet_Boogle
                 return false;
             }
 
-            if (this.lettresPlateau[i, j] != Convert.ToString(mot[indiceLettre]))
+            if (this.lettresPlateau[i, j] != mot[indiceLettre])
             {
                 return false;
             }
