@@ -12,16 +12,6 @@ namespace Projet_Boogle
     {
         public static Dictionary<char, int[]>? Lettres; // un dictionnaire avec toutes les lettres, leur nombre et leur poids
 
-        public static void AfficherDictionnaire(Dictionary<string, int[]> dictionnaire)
-        {
-            foreach (KeyValuePair<string, int[]> element in dictionnaire)
-            {
-                string cle = element.Key;
-                int[] valeurs = element.Value;
-
-                Console.WriteLine($"Clé: {cle}, Valeurs: [{valeurs[0]}, {valeurs[1]}]");
-            }
-        }
 
         static void Main(string[] args)
         {
@@ -118,10 +108,13 @@ namespace Projet_Boogle
                     max = joueur.Score;
                     j_max = joueur.Nom;
                 }
-                Console.WriteLine(joueur.ToString());
+                Console.WriteLine(joueur.toString());
             }
             Console.WriteLine("Et le grand gagnant est " + j_max + " !!!! ouaiiiiiiiiiis bravo wouwouuuuuuWOUUUUU");
-            
+            foreach (Joueur joueur in joueurs)
+            {
+                joueur.GenererNuageDeMots();
+            }
         }
     }
 }
