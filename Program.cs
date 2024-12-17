@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using Internal;
 using Projet_Boogle;
 
 class Program
@@ -141,6 +143,41 @@ class Program
         else
         {
             Console.WriteLine("pas trouve");
+        }
+    }
+
+    public static void TestJoueur()
+    {
+        Dictionary<string, int> tests = new Dictionary<string, int>
+        {
+                { "ABE", 5 },  // A(1) + B(3) + E(1) = 5
+                { "CADE", 7 },
+                { "BEE", 5 },
+                { "ABCD", 9 },
+                { "INVA", 0 }
+        };
+
+
+        foreach (var test in tests)
+        {
+            string mot = test.Key;
+            int scoreAttendu = test.Value;
+
+            // Créer un Joueur
+            Joueur joueur = new Joueur("Tash");
+
+
+            int actualScore = joueur.ScoreDuMot(mot);
+
+            // Vérifier le résultat
+            if (actualScore == scoreAttendu)
+            {
+                Console.WriteLine($"Test bon pour le mot '{mot}'");
+            }
+            else
+            {
+                Console.WriteLine($"Test échoué pour le mot '{mot}'");
+            }
         }
     }
 

@@ -25,6 +25,8 @@ namespace Projet_Boogle
 
         static void Main(string[] args)
         {
+            Program.TestJoueur();
+
             string fichierLettre = Program.LireFichier("Lettres.txt");
             Lettres = Program.StringLettresToDico(fichierLettre);
             AfficherDictionnaire(Lettres);
