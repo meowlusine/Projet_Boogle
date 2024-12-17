@@ -98,7 +98,7 @@ namespace Projet_Boogle
 
             Console.WriteLine("==== Fin de la partie ! ====");
             Console.WriteLine(" Voici les résultats ;) \n'roulement de tambours'...");
-            Thread.Sleep(500);
+            Thread.Sleep(2000);
             int max = 0;
             string j_max = "";
             foreach(Joueur joueur in joueurs)
