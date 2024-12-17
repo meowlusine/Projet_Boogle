@@ -63,6 +63,7 @@ namespace Projet_Boogle
             {
                 motsTrouves[mot] += 1;
             }
+            this.score += ScoreDuMot(mot);
         }
 
         public int ScoreDuMot(string mot)
