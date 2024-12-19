@@ -102,6 +102,20 @@ namespace Projet_Boogle
                 return RechDicoRecursif(mot, droite);
             }
         }
+
+        // recherche lineaire, non retenu pour la version finale 
+        public static bool recherche_lineaire(string mot, List<string> liste)
+            {
+            foreach(string element in liste)
+                {
+                    if(element == mot)
+                    {
+                         return true;
+                    }
+        
+                }
+                return false;
+            }
         #endregion
     }
 
