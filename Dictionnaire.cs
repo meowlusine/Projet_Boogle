@@ -31,6 +31,12 @@ namespace Projet_Boogle
         #endregion
 
         #region Méthodes
+        
+        /// <summary>
+        /// Une méthode qui renvoie un string qui décrit le dictionnaire selon le nombre de mots par longueur,
+        /// le nombre de mots par lettre et enfin par langue
+        /// </summary>
+        /// <returns>description du dictionnaire</returns>
         public string toString()
         {
             Dictionary<int, int> nb_mots_longueur = new Dictionary<int, int>();
@@ -74,36 +80,46 @@ namespace Projet_Boogle
             return res + "\nLangue : " + this.langue;
         }
 
-
+        /// <summary>
+        /// On recherche si le mot entré en paramètre appartient au dictionnaire de façon récursive
+        /// </summary>
+        /// <param name="mot"></param>
+        /// <param name="liste_mots"></param>
+        /// <returns>un booléen qui indique si le mot appartient au dico</returns>
         public bool RechDicoRecursif(string mot, List<string> liste_mots)
         {
-            // Gestion des cas de base
+            
             if (liste_mots.Count == 0) return false;
             if (liste_mots.Count == 1) return string.Compare(mot, liste_mots[0]) == 0;
 
             int milieu = liste_mots.Count / 2;
             string mot_milieu = liste_mots[milieu];
 
-            // Comparaison avec l'élément central
+            
             int comparaison = string.Compare(mot, mot_milieu);
 
             if (comparaison == 0)
                 return true;
             else if (comparaison < 0)
             {
-                // Partie gauche
+               
                 var gauche = liste_mots.GetRange(0, milieu);
                 return RechDicoRecursif(mot, gauche);
             }
             else
             {
-                // Partie droite
+                
                 var droite = liste_mots.GetRange(milieu + 1, liste_mots.Count - (milieu + 1));
                 return RechDicoRecursif(mot, droite);
             }
         }
 
-        // recherche lineaire, non retenu pour la version finale 
+        /// <summary>
+        /// recherche si le mot entré en paramètre appartient au dico en le parcourant du début à la fin
+        /// </summary>
+        /// <param name="mot"></param>
+        /// <param name="liste"></param>
+        /// <returns>un booléen: vrai si le mot appartient au dico, faux sinon</returns>
         public static bool recherche_lineaire(string mot, List<string> liste)
             {
             foreach(string element in liste)
