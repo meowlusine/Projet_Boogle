@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Projet_Boogle
 {
+    /// <summary>
+    /// création du plateau
+    /// </summary>
     internal class Plateau
     {
         private De[] des;
@@ -21,8 +24,6 @@ namespace Projet_Boogle
         {
             this.des = new De[taille * taille];
             this.lettresPlateau = new char[taille, taille];
-
-            //création d'un dictionnaire avec les lettres de l'alphabet et le nombre de fois qu'elles apparaissent sur le plateau
            
             Dictionary<char, int> apparence_lettre = new Dictionary<char, int>();
             for (char lettre = 'A'; lettre <= 'Z'; lettre++)
@@ -55,9 +56,9 @@ namespace Projet_Boogle
         
         
         /// <summary>
-        /// retourne le plateau écrit 
+        /// parcourt la matrice des lettres du plateau pour renvoyer un string de la forme du plateau
         /// </summary>
-        /// <returns></returns>
+        /// <returns>un string qui a la forme d'un plateau taille*taille avec les lettres du plateau</returns>
         public string toString()
         {
             string a = "";
@@ -73,6 +74,13 @@ namespace Projet_Boogle
             return a;
         }
 
+        /// <summary>
+        /// on vérifie si le mot a au moins la longueur minimale, s'il a déjà été trouvé,
+        /// et enfin s'il appartient au dico. S'il appartient au dico, on vérifie que les conditions d'adjacence des lettres sont respectées 
+        /// en appelant la fonction RechercheMot. Si oui, on le rajoute aux mots trouvés
+        /// </summary>
+        /// <param name="mot"></param>
+        /// <returns>un booléen qui indique si le mot rempli les conditions</returns>
         public bool Test_Plateau(string mot)
         {
             if(mot.Length < 2)
@@ -103,6 +111,18 @@ namespace Projet_Boogle
             return false;
         }
 
+
+        /// <summary>
+        /// on recherche si les lettres sont bien adjacentes dans le plateau. Pour cela, il faut verifier que les indice i et j soient compris entre 0 et la taille du plateau
+        /// on parcourt le plateau à la recherche de la première lettre, ensuite on regarde si les lettres suivantes sont adjacentes a la précédente. 
+        /// </summary>
+        /// <param name="mot"></param>
+        /// <param name="indiceLettre"></param>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <param name="visite"></param>
+        /// <returns>renvoie un booléen si les conditions sont remplies</returns>
+    
         public bool RechercheMot(string mot, int indiceLettre, int i, int j, bool[,] visite)
         {
             if(i<0 || j<0 || i>=this.taille || j>=this.taille || visite[i,j])
