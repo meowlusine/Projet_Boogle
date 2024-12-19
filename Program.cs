@@ -24,16 +24,16 @@ class Program
     {
         Dictionary<char, int[]> Lettres = new Dictionary<char, int[]>();
 
-        // Sépare les lignes du fichier
+        
         string[] chaque_ligne = fichierLettre.Split("\n", StringSplitOptions.RemoveEmptyEntries);
 
         foreach (string ligne in chaque_ligne)
         {
-            // Sépare les éléments de chaque ligne
+            
             string[] parties = ligne.Split(';');
-            char lettre = Convert.ToChar(parties[0]); // Première colonne : la lettre
-            int poids = Convert.ToInt32(parties[1]); // Deuxième colonne : le poids
-            int nombre = Convert.ToInt32(parties[2]); // Troisième colonne : le nombre
+            char lettre = Convert.ToChar(parties[0]); 
+            int poids = Convert.ToInt32(parties[1]); 
+            int nombre = Convert.ToInt32(parties[2]); 
 
             Lettres.Add(lettre, new int[] { poids, nombre }); 
 
@@ -53,11 +53,11 @@ class Program
     public static List<string> transformation_Dico(string langue)
     {
 
-        // en fonction de la langue, on prend le fichier correspondant et on le transforme en List de mots
+        
         List<string> liste_mots = new List<string>();
         if (langue == "fr")
         {
-            liste_mots = Program.LireFichier("MotsPossiblesFR.txt").Split(" ").ToList(); // string -> string[] -> List<string>
+            liste_mots = Program.LireFichier("MotsPossiblesFR.txt").Split(" ").ToList(); 
         }
         else
         {
@@ -70,6 +70,7 @@ class Program
     #endregion
 
     #region Tests
+    
     public static void TestDe()
     {
         
@@ -80,6 +81,7 @@ class Program
         Console.ReadLine();
     }
 
+    
     public static void Test_tris()
     {
         List<string> liste_mots = new List<string> { "banane", "pomme", "orange", "kiwi", "ananas", "fraise", "cerise", "abricot", "mangue", "raisin", "poire", "grenade", "figue", "prune", "datte" };
