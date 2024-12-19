@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace Projet_Boogle
 {
+    
     internal class De
     {
-        // le dé est un dictionnaire de la forme {"C":1;"J":2;...} avec en clé un string de la lettre et en valeur
-        // le nombre de fois qu'apparait la lettre sur le dé 
-
         private Dictionary<char,int> lettres_de = new Dictionary<char, int>();
         private char lettre_visible;
 
@@ -24,8 +22,8 @@ namespace Projet_Boogle
             for(int i=0; i<6; i++)
             {
                 int numero_lettre = random.Next(0, 26);
-                char[] lettres = Jeu.Lettres.Keys.ToArray(); // met toutes les lettres dans un tableau de string
-                char lettre_choisie = lettres[numero_lettre]; // choisie une lettre random 
+                char[] lettres = Jeu.Lettres.Keys.ToArray(); 
+                char lettre_choisie = lettres[numero_lettre]; 
                 if (lettres_de.ContainsKey(lettre_choisie))
                 {
                     lettres_de[lettre_choisie] += 1;
@@ -53,9 +51,14 @@ namespace Projet_Boogle
         #endregion
 
         #region Méthodes
+
+        /// <summary>
+        /// la méthode crée un tableau de string avec les lettres des faces du dé
+        /// la lettre visible est une lettre random des lettres sur les 6 faces du dé
+        /// </summary>
         public void Lance()
         {
-            // on crée un tableau de string avec les lettres des faces du dé
+            
             char[] lettres = new char[6];
             int index = 0;
             foreach (char lettre in this.lettres_de.Keys) {
@@ -68,6 +71,12 @@ namespace Projet_Boogle
             this.lettre_visible = lettres[random.Next(0, 6)];
         }
 
+        
+        /// <summary>
+        /// retourne un string qui indique les 6 lettres sur les faces du dé, et la lettre obtenue après avoir lancé          
+        /// le dé
+        /// </summary>
+        /// <returns>description du dé</returns>
         public string toString()
         {
             string res = "Le dé est composé des faces suivantes : ";
