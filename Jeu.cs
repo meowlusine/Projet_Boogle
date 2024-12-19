@@ -10,7 +10,7 @@ namespace Projet_Boogle
 {
     class Jeu
     {
-        public static Dictionary<char, int[]>? Lettres; // un dictionnaire avec toutes les lettres, leur nombre et leur poids
+        public static Dictionary<char, int[]>? Lettres; 
 
 
         static void Main(string[] args)
@@ -20,7 +20,7 @@ namespace Projet_Boogle
             string fichierLettre = Program.LireFichier("Lettres.txt");
             Lettres = Program.StringLettresToDico(fichierLettre);
 
-            // Creation des joueurs 
+          
 
             Console.WriteLine("==== Bienvenue au jeu Boggle ! ==== ");
             Console.WriteLine("Entre le nombre de joueur : ");
@@ -33,7 +33,7 @@ namespace Projet_Boogle
                 joueurs[i] = new Joueur(nom);
             }
 
-            // choix de la langue par le joueur 
+           
 
             Console.WriteLine("Choisis la langue ('fr' pour français et 'en' pour anglais) : ");
             string langue = Convert.ToString(Console.ReadLine());
@@ -44,7 +44,6 @@ namespace Projet_Boogle
                 langue = Convert.ToString(Console.ReadLine());
             }
 
-            // choix de la taille du plateau
 
             Console.WriteLine("Choisis la taille du plateau : ");
             int taille = Convert.ToInt32(Console.ReadLine());
@@ -61,7 +60,7 @@ namespace Projet_Boogle
                     Console.WriteLine($"\nC'est au tour de " + joueurs[joueur].Nom +" !");
                     Console.WriteLine("Tu as 1 min pour jouer.");
 
-                    // creation du plateau 
+                   
                     Dictionnaire dico = new Dictionnaire(langue);
                     Plateau plateau = new Plateau(taille, dico);
                     Console.WriteLine(plateau.toString());
@@ -90,7 +89,7 @@ namespace Projet_Boogle
 
 
                     }
-                    stopwatch.Stop(); // Arrête le chronomètre
+                    stopwatch.Stop(); 
 
 
                 }
