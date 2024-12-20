@@ -5,6 +5,8 @@ using Projet_Boogle;
 
 class Program
 {
+
+    //Ce fichier contient des méthodes utiles pour la traitement des fichiers et les différents types de tris demandés
    
 
     #region Methodes de mise en forme des fichiers 
