@@ -88,9 +88,15 @@ namespace Projet_Boogle
         /// <returns>un booléen qui indique si le mot appartient au dico</returns>
         public bool RechDicoRecursif(string mot, List<string> liste_mots)
         {
-            
-            if (liste_mots.Count == 0) return false;
-            if (liste_mots.Count == 1) return string.Compare(mot, liste_mots[0]) == 0;
+
+            if (liste_mots.Count == 0)
+            {
+                return false;
+            }
+            if (liste_mots.Count == 1)
+            {
+                return string.Compare(mot, liste_mots[0]) == 0;
+            }
 
             int milieu = liste_mots.Count / 2;
             string mot_milieu = liste_mots[milieu];
@@ -99,7 +105,10 @@ namespace Projet_Boogle
             int comparaison = string.Compare(mot, mot_milieu);
 
             if (comparaison == 0)
+            {
                 return true;
+            }
+                
             else if (comparaison < 0)
             {
                

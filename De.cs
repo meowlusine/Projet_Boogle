@@ -13,7 +13,7 @@ namespace Projet_Boogle
         private Dictionary<char,int> lettres_de = new Dictionary<char, int>();
         private char lettre_visible;
 
-        Random random = new Random();
+        
 
         #region Constructeur
         public De()
@@ -21,7 +21,7 @@ namespace Projet_Boogle
             
             for(int i=0; i<6; i++)
             {
-                int numero_lettre = random.Next(0, 26);
+                int numero_lettre = Jeu.random.Next(0, 26);
                 char[] lettres = Jeu.Lettres.Keys.ToArray(); 
                 char lettre_choisie = lettres[numero_lettre]; 
                 if (lettres_de.ContainsKey(lettre_choisie))
@@ -68,7 +68,7 @@ namespace Projet_Boogle
                     index++;
                 }
             }
-            this.lettre_visible = lettres[random.Next(0, 6)];
+            this.lettre_visible = lettres[Jeu.random.Next(0, 6)];
         }
 
         

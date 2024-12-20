@@ -9,9 +9,10 @@ namespace Projet_Boogle
     class Jeu
     {
         public static Dictionary<char, int[]>? Lettres;
-
+        public static Random random = new Random();
         static void Main(string[] args)
         {
+            
             string fichierLettre = Program.LireFichier("Lettres.txt");
             Lettres = Program.StringLettresToDico(fichierLettre);
 
@@ -38,12 +39,11 @@ namespace Projet_Boogle
             Console.WriteLine("Choisis la taille du plateau : ");
             int taille = Convert.ToInt32(Console.ReadLine());
             while (taille < 2 || taille>10)
-                {
-                    Console.WriteLine("entrée non valide");
-                    Console.WriteLine("Choisis la taille du plateau : ");
-                    taille = Convert.ToInt32(Console.ReadLine());
-                }
-            
+            {
+                Console.WriteLine("entrée non valide");
+                Console.WriteLine("Choisis la taille du plateau : ");
+                taille = Convert.ToInt32(Console.ReadLine());
+            }
 
             Console.WriteLine("Choisis le nombre de tour : ");
             int tour = Convert.ToInt32(Console.ReadLine());
@@ -60,7 +60,7 @@ namespace Projet_Boogle
                     Plateau plateau = new Plateau(taille, dico);
                     Console.WriteLine(plateau.toString());
 
-                   
+                    // Utilisation de DateTime pour gérer le temps
                     DateTime debutTour = DateTime.Now;
                     TimeSpan dureeTour = TimeSpan.FromMinutes(1);
 

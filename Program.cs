@@ -6,6 +6,7 @@ using Projet_Boogle;
 class Program
 {
 
+    //Ce fichier contient des méthodes utiles pour la traitement des fichiers et les différents types de tris demandés
    
 
     #region Methodes de mise en forme des fichiers 
@@ -173,7 +174,7 @@ class Program
     /// tri une liste de string
     /// </summary>
     /// <param name="liste_mots"></param>
-    /// <returns>void</returns>
+    /// <returns>liste de string</returns>
     public static List<string> tri_fusion(List<string> liste_mots)
     {
         if ( liste_mots.Count <=1)

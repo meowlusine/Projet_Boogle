@@ -70,7 +70,7 @@ namespace Projet_Boogle
             }
         }
         /// <summary>
-        /// la focntion Add_Mot ajoute le mot entré en paramètre à la liste des mots trouvés 
+        /// la fonction Add_Mot ajoute le mot entré en paramètre à la liste des mots trouvés 
         /// s'il n'a pas encore été trouvé, s'il a déjà été trouvé lors d'un tours précédent, 
         /// son occurrence augmente de 1
         /// enfin, on ajoute les points gagnés par ce mot au score total du joueur
@@ -144,14 +144,6 @@ namespace Projet_Boogle
             g.Clear(Color.White);
 
            
-            Random rand = new Random();
-            System.Drawing.Font[] polices = {
-        new System.Drawing.Font("Arial", 12),
-        new System.Drawing.Font("Arial", 16),
-        new System.Drawing.Font("Arial", 20),
-        new System.Drawing.Font("Arial", 24),
-        new System.Drawing.Font("Arial", 30)
-    };
 
             Brush[] couleurs = {
         new SolidBrush(Color.FromArgb(128, 0, 128)), 
@@ -182,7 +174,7 @@ namespace Projet_Boogle
                 System.Drawing.Font font = new System.Drawing.Font("Arial", taillePolice);
 
                 
-                Brush couleur = couleurs[rand.Next(couleurs.Length)];
+                Brush couleur = couleurs[Jeu.random.Next(couleurs.Length)];
 
                
                 SizeF tailleMot = g.MeasureString(mot.Key, font);
@@ -196,8 +188,8 @@ namespace Projet_Boogle
                 while (!trouvePlace && tentatives < maxTentatives)
                 {
                     
-                    int x = rand.Next(minSpacing, largeur - motLargeur - minSpacing);
-                    int y = rand.Next(minSpacing, hauteur - motHauteur - minSpacing);
+                    int x = Jeu.random.Next(minSpacing, largeur - motLargeur - minSpacing);
+                    int y = Jeu.random.Next(minSpacing, hauteur - motHauteur - minSpacing);
 
                     Rectangle position = new Rectangle(x, y, motLargeur, motHauteur);
 
@@ -215,7 +207,7 @@ namespace Projet_Boogle
                     if (!overlap)
                     {
                         
-                        int rotationAngle = rand.Next(0, 2) == 0 ? 0 : 90; 
+                        int rotationAngle = Jeu.random.Next(0, 2) == 0 ? 0 : 90; 
                         g.TranslateTransform(position.X + motLargeur / 2, position.Y + motHauteur / 2); 
                         g.RotateTransform(rotationAngle); 
 
