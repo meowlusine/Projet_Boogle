@@ -37,6 +37,13 @@ namespace Projet_Boogle
 
             Console.WriteLine("Choisis la taille du plateau : ");
             int taille = Convert.ToInt32(Console.ReadLine());
+            while (taille < 2 || taille>10)
+                {
+                    Console.WriteLine("entrée non valide");
+                    Console.WriteLine("Choisis la taille du plateau : ");
+                    taille = Convert.ToInt32(Console.ReadLine());
+                }
+            
 
             Console.WriteLine("Choisis le nombre de tour : ");
             int tour = Convert.ToInt32(Console.ReadLine());
