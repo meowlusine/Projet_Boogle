@@ -12,12 +12,14 @@ namespace Projet_Boogle
     /// <summary>
     /// classe permet de créer un joueur
     /// </summary>
+
     internal class Joueur
     {
         private string nom;
         private int score;
         private Dictionary<string, int> motsTrouves;
 
+        #region Constructeur
         public Joueur(string nom)
         {
             this.nom = nom;
@@ -30,6 +32,9 @@ namespace Projet_Boogle
             this.motsTrouves = new Dictionary<string, int>();
         }
 
+        #endregion
+
+        #region Propriétés
         public string Nom
         {
             get { return this.nom; }
@@ -44,7 +49,10 @@ namespace Projet_Boogle
             set { this.motsTrouves=value;}
             }
 
+        #endregion
 
+
+        #region Méthodes 
         /// <summary>
         /// La fonction Contain permet de déterminer si le mot entré a déjà été trouvé par le joueur
         /// </summary>
@@ -116,6 +124,8 @@ namespace Projet_Boogle
             return res;
 
         }
+
+        #region GenererNuageDeMot
 
         /// <summary>
         /// génère un nuage de mot avec les mots trouvés pas le joueur au cours de la partie
@@ -236,5 +246,8 @@ namespace Projet_Boogle
             g.Dispose();
             image.Dispose();
         }
+        #endregion
+
+        #endregion
     }
 }
