@@ -13,13 +13,14 @@ namespace Projet_Boogle
     /// </summary>
     internal class Plateau
     {
+        
         private De[] des;
         private char[,] lettresPlateau;
         private int taille;
         private Dictionnaire dico;
         private List<string> mot_trouvés_plateau;
 
-        
+        #region Constructeur 
         public Plateau( int taille, Dictionnaire dico)
         {
             this.des = new De[taille * taille];
@@ -53,8 +54,10 @@ namespace Projet_Boogle
             this.mot_trouvés_plateau = new List<string>();
         }
 
-        
-        
+        #endregion
+
+        #region Méthodes
+
         /// <summary>
         /// parcourt la matrice des lettres du plateau pour renvoyer un string de la forme du plateau
         /// </summary>
@@ -157,6 +160,8 @@ namespace Projet_Boogle
             visite[i, j] = false;
             return false;
         }
-       
+
+        #endregion
+
     }
 }
