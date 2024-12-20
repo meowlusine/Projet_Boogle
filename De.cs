@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Projet_Boogle
 {
     
-    internal class De
+    public class De
     {
         private Dictionary<char,int> lettres_de = new Dictionary<char, int>();
         private char lettre_visible;

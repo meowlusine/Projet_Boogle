@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Projet_Boogle;
 
-class Program
+public class Program
 {
 
     //Ce fichier contient des méthodes utiles pour la traitement des fichiers et les différents types de tris demandés

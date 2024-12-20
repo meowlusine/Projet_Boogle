@@ -11,7 +11,7 @@ namespace Projet_Boogle
     /// <summary>
     /// création du plateau
     /// </summary>
-    internal class Plateau
+    public class Plateau
     {
         
         private De[] des;

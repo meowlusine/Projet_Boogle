@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projet_Boogle
 {
-    internal class Dictionnaire
+    public class Dictionnaire
     {
         private string langue = "fr";
         private List<string> liste_mots = new List<string>();

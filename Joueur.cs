@@ -13,7 +13,7 @@ namespace Projet_Boogle
     /// classe permet de créer un joueur
     /// </summary>
 
-    internal class Joueur
+    public class Joueur
     {
         private string nom;
         private int score;
@@ -69,6 +69,7 @@ namespace Projet_Boogle
                 return false;
             }
         }
+
         /// <summary>
         /// la fonction Add_Mot ajoute le mot entré en paramètre à la liste des mots trouvés 
         /// s'il n'a pas encore été trouvé, s'il a déjà été trouvé lors d'un tours précédent, 

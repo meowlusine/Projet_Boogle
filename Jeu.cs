@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projet_Boogle
 {
-    class Jeu
+    public class Jeu
     {
         public static Dictionary<char, int[]>? Lettres;
         public static Random random = new Random();
