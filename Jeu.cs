@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Projet_Boogle
 {
     class Jeu
     {
-        public static Dictionary<char, int[]>? Lettres; 
-
+        public static Dictionary<char, int[]>? Lettres;
 
         static void Main(string[] args)
         {
-            
-
             string fichierLettre = Program.LireFichier("Lettres.txt");
             Lettres = Program.StringLettresToDico(fichierLettre);
 
-          
-
-            Console.WriteLine("==== Bienvenue au jeu Boggle ! ==== ");
+            Console.WriteLine("==== Bienvenue au jeu Boggle ! ====");
             Console.WriteLine("Entre le nombre de joueur : ");
             int nb_joueur = Convert.ToInt32(Console.ReadLine());
             Joueur[] joueurs = new Joueur[nb_joueur];
@@ -33,44 +26,39 @@ namespace Projet_Boogle
                 joueurs[i] = new Joueur(nom);
             }
 
-           
-
             Console.WriteLine("Choisis la langue ('fr' pour français et 'en' pour anglais) : ");
             string langue = Convert.ToString(Console.ReadLine());
-            while(langue != "fr" && langue != "en")
+            while (langue != "fr" && langue != "en")
             {
                 Console.WriteLine("entrée non valide");
                 Console.WriteLine("Choisis la langue ('fr' pour français et 'en' pour anglais) : ");
                 langue = Convert.ToString(Console.ReadLine());
             }
 
-
             Console.WriteLine("Choisis la taille du plateau : ");
             int taille = Convert.ToInt32(Console.ReadLine());
-            
 
+            Console.WriteLine("Choisis le nombre de tour : ");
+            int tour = Convert.ToInt32(Console.ReadLine());
 
-
-            for (int tour = 1; tour <= 3; tour++)
+            for (int t = 1; t <= tour; t++) 
             {
-
-                Console.WriteLine("____ Tour " + tour + " ! ____");
+                Console.WriteLine("____ Tour " + t + " ! ____");
                 for (int joueur = 0; joueur < joueurs.Length; joueur++)
                 {
-                    Console.WriteLine($"\nC'est au tour de " + joueurs[joueur].Nom +" !");
+                    Console.WriteLine($"\nC'est au tour de " + joueurs[joueur].Nom + " !");
                     Console.WriteLine("Tu as 1 min pour jouer.");
 
-                   
                     Dictionnaire dico = new Dictionnaire(langue);
                     Plateau plateau = new Plateau(taille, dico);
                     Console.WriteLine(plateau.toString());
 
-                    Stopwatch stopwatch = new Stopwatch();
-                    stopwatch.Start();
+                    // Utilisation de DateTime pour gérer le temps
+                    DateTime debutTour = DateTime.Now;
+                    TimeSpan dureeTour = TimeSpan.FromMinutes(1);
 
-                    while (stopwatch.Elapsed.TotalSeconds < 60)
+                    while (DateTime.Now - debutTour < dureeTour)
                     {
-                        
                         Console.WriteLine("Ecris un mot");
                         string mot = Convert.ToString(Console.ReadLine());
 
@@ -78,20 +66,15 @@ namespace Projet_Boogle
                         {
                             Console.WriteLine("valide");
                             joueurs[joueur].Add_Mot(mot);
-
                         }
                         else
                         {
                             Console.WriteLine("non valide");
                         }
 
+                        
                         Thread.Sleep(100);
-
-
                     }
-                    stopwatch.Stop(); 
-
-
                 }
             }
 
@@ -100,9 +83,9 @@ namespace Projet_Boogle
             Thread.Sleep(2000);
             int max = 0;
             string j_max = "";
-            foreach(Joueur joueur in joueurs)
+            foreach (Joueur joueur in joueurs)
             {
-                if(joueur.Score> max)
+                if (joueur.Score > max)
                 {
                     max = joueur.Score;
                     j_max = joueur.Nom;
