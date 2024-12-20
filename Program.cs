@@ -69,125 +69,16 @@ class Program
 
     #endregion
 
-    #region Tests
-    
-    public static void TestDe()
-    {
-        
-
-        De dé = new De();
-        dé.Lance();
-        Console.WriteLine(dé.toString());
-        Console.ReadLine();
-    }
-
-    
-    public static void Test_tris()
-    {
-        List<string> liste_mots = new List<string> { "banane", "pomme", "orange", "kiwi", "ananas", "fraise", "cerise", "abricot", "mangue", "raisin", "poire", "grenade", "figue", "prune", "datte" };
-        List<string> liste_mots_selection = new List<string>(liste_mots);
-        List<string> liste_mots_rapide = new List<string>(liste_mots);
-        List<string> liste_mots_fusion = new List<string>(liste_mots);
-
-        tri_selection(liste_mots_selection);
-        foreach (string s in liste_mots_selection)
-        {
-            Console.Write(s + ", ");
-        }
-        Console.WriteLine();
-
-        tri_rapide(liste_mots_rapide, 0, liste_mots_rapide.Count - 1);
-        foreach (string s in liste_mots_rapide)
-        {
-            Console.Write(s + ", ");
-        }
-        Console.WriteLine();
-
-        liste_mots_fusion = tri_fusion(liste_mots_fusion);
-        foreach (string s in liste_mots_fusion)
-        {
-            Console.Write(s + ", ");
-        }
-        Console.WriteLine();
-
-        Console.ReadLine();
-    }
-
-    public static void TestDictionnaire()
-    {
-        Dictionnaire dicoFr = new Dictionnaire("fr");
-        Console.WriteLine(dicoFr.toString());
-        string motCherche1 = "CHAMPIGNONS";
-        string motCherche2 = "CITRON";
-        Console.WriteLine($"Recherche du mot '{motCherche1}' : " + dicoFr.RechDicoRecursif(motCherche1, dicoFr.Liste_mots));
-        Console.WriteLine($"Recherche du mot '{motCherche2}' : " + dicoFr.RechDicoRecursif(motCherche2, dicoFr.Liste_mots));
-
-
-        Dictionnaire dicoEn = new Dictionnaire("en");
-        Console.WriteLine("\n=== Test de la méthode toString() pour l'anglais ===");
-        Console.WriteLine(dicoEn.toString());
-        Console.ReadLine();
-    }
-
-    public static void TestPlateau()
-    {
-        Dictionnaire dico = new Dictionnaire("fr");
-        Plateau plateau = new Plateau(4,dico);
-        Console.WriteLine(plateau.toString());
-        Console.WriteLine("Ecrivez un mot");
-        string mot = Convert.ToString(Console.ReadLine());
-
-        if (plateau.Test_Plateau(mot))
-        {
-            Console.WriteLine("mot trouve");
-        }
-        else
-        {
-            Console.WriteLine("pas trouve");
-        }
-    }
-
-    public static void TestJoueur()
-    {
-        Dictionary<string, int> tests = new Dictionary<string, int>
-        {
-                { "ABE", 5 },  // A(1) + B(3) + E(1) = 5
-                { "CADE", 7 },
-                { "BEE", 5 },
-                { "ABCD", 9 },
-                { "INVA", 0 }
-        };
-
-
-        foreach (var test in tests)
-        {
-            string mot = test.Key;
-            int scoreAttendu = test.Value;
-
-            // Créer un Joueur
-            Joueur joueur = new Joueur("Tash");
-
-
-            int actualScore = joueur.ScoreDuMot(mot);
-
-            // Vérifier le résultat
-            if (actualScore == scoreAttendu)
-            {
-                Console.WriteLine($"Test bon pour le mot '{mot}'");
-            }
-            else
-            {
-                Console.WriteLine($"Test échoué pour le mot '{mot}'");
-            }
-        }
-    }
-
-
-    #endregion
 
     #region Tris
 
     #region Tri selection
+
+    /// <summary>
+    /// tri une liste de string 
+    /// </summary>
+    /// <param name="liste_mots"></param>
+    /// <returns>void</returns>
     public static void tri_selection(List<string> liste_mots)
     {
         for (int i = 0; i < liste_mots.Count - 1; i++)
@@ -212,6 +103,7 @@ class Program
     #endregion
 
     #region Tri rapide
+
     public static int partitionner(List<string> liste_mots, int premier, int dernier){
         string pivot = liste_mots[dernier];
         int i = premier-1;
@@ -231,6 +123,13 @@ class Program
         return i + 1;
     }
 
+    /// <summary>
+    /// tri une liste de string
+    /// </summary>
+    /// <param name="liste_mots"></param>
+    /// <param name="premier">0</param>
+    /// <param name="dernier">taille de la liste</param>
+    /// <returns>void</returns>
     public static void tri_rapide(List<string> liste_mots, int premier, int dernier)
     { 
         if (premier < dernier)
@@ -268,6 +167,12 @@ class Program
         return res;
     }
 
+
+    /// <summary>
+    /// tri une liste de string
+    /// </summary>
+    /// <param name="liste_mots"></param>
+    /// <returns>void</returns>
     public static List<string> tri_fusion(List<string> liste_mots)
     {
         if ( liste_mots.Count <=1)
