@@ -53,7 +53,7 @@ namespace Projet_Boogle
                     Plateau plateau = new Plateau(taille, dico);
                     Console.WriteLine(plateau.toString());
 
-                    // Utilisation de DateTime pour gérer le temps
+                   
                     DateTime debutTour = DateTime.Now;
                     TimeSpan dureeTour = TimeSpan.FromMinutes(1);
 
